@@ -1,0 +1,30 @@
+{
+  "name": "nuxt-supabase",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "nuxt",
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "generate": "nuxt generate"
+  },
+  "dependencies": {
+    "@nuxtjs/axios": "^5.13.1",
+    "@nuxtjs/composition-api": "^0.22.0",
+    "@nuxtjs/pwa": "^3.3.5",
+    "@supabase/supabase-js": "^1.4.2",
+    "@vue/composition-api": "^1.0.0-rc.3",
+    "core-js": "^3.9.1",
+    "lodash.isequal": "^4.5.0",
+    "nanoid": "^3.1.20",
+    "nuxt": "^2.15.2",
+    "nuxt-supabase": "^1.0.2",
+    "nuxt-vite": "^0.0.28"
+  },
+  "devDependencies": {
+    "@nuxtjs/vuetify": "^1.11.3",
+    "eslint-config-prettier": "^8.1.0",
+    "eslint-plugin-prettier": "^3.3.1",
+    "prettier": "^2.2.1"
+  }
+}
