@@ -1,8 +1,15 @@
 <template>
-  <div>
-    <v-card>
-      <v-card-title> ToDo App </v-card-title>
+  <div class="d-flex flex-column align-center">
+    <v-card max-width="600px">
+      <v-btn @click="drawer = !drawer">Open Drawer</v-btn>
+      <v-card-title style="word-break: break-word">
+        Nuxt Supabase template
+      </v-card-title>
       <v-card-text>
+        <p>
+          Nuxt Supabase Realtime - CRUD template with Composition API and
+          Optimistic UI.
+        </p>
         <form
           @submit.prevent="
             addTodo(newTodo)
@@ -33,16 +40,13 @@
         <h4 v-if="todos.length === 0">Empty list.</h4>
       </v-card-text>
     </v-card>
-
-    <hr />
-    <todos />
   </div>
 </template>
 
 <script>
-import { ref } from '@vue/composition-api'
+import { ref } from '@nuxtjs/composition-api'
 import { todos, fetchTodos, addTodo, doneTodo, removeTodo } from '~/api/todos'
-
+import { drawer } from '~/layouts/default'
 export default {
   setup() {
     // Reactive state newTodo with composition API. You can still use data(){return {newTodo:''}} from the options API
@@ -55,55 +59,15 @@ export default {
       doneTodo,
       removeTodo,
       newTodo,
+      drawer,
     }
   },
   mounted() {
     this.fetchTodos()
   },
-
-  /*
-   * newTodo with Options API
-   * /
-   */
-  // data() {
-  //   return { newTodo: '' }
-  // },
-
-  // async asyncData({ $supabase }) {
-  //   const data = await $supabase.from('todos').select('*')
-  //   return {
-  //     todos: data.data,
-  //   }
-  // },
-  // computed: {
-  //   todos() {
-  //     return this.$store.state.todos.todos
-  //   },
-  // },
-  // async created() {
-  //   this.$store.dispatch('todos/fetchTodos')
-  // },
-  // setup(props) {
-  //   let todos = []
-  //
-  //   const getTodos = async () => {
-  //     todos = await fetchTodos()
-  //   }
-  //
-  //   return {
-  //     todos,
-  //     getTodos, // functions returned behave the same as methods
-  //   }
-  // },
-  // async created() {
-  //   await fetchTodos()
-  // },
-  // computed: {
-  //   todos,
-  // },
 }
 </script>
-<style lang="scss">
+<style lang="scss" scoped>
 $border: 2px solid
   rgba(
     $color: white,

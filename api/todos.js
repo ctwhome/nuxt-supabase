@@ -3,7 +3,7 @@
  * https://github.com/vuejs/composition-api
  */
 import { supabase } from '~/plugins/supabase'
-import { reactive, set } from '@vue/composition-api'
+import { reactive, set } from '@nuxtjs/composition-api'
 import { nanoid } from 'nanoid'
 
 // Reactive 'global' variable
