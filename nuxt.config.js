@@ -4,7 +4,11 @@ export default {
   // Disable server-side rendering: https://go.nuxtjs.dev/ssr-mode
   ssr: false,
 
-  // Target: https://go.nuxtjs.dev/config-target
+  env: {
+    supabaseUrl: process.env.NUXT_ENV_SUPABASE_URL,
+    supabaseKey: process.env.NUXT_ENV_SUPABASE_KEY,
+  },
+
   target: 'static',
 
   // Global page headers: https://go.nuxtjs.dev/config-head

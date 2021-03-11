@@ -9,7 +9,6 @@ supabase
   .on('*', (payload) => {
     const todos = window.$nuxt.$store.state.todos.todos // TODO: access from window.$nuxt? arg...
     const idx = todos.findIndex((todo) => todo.id === payload.new.id)
-    console.log('🎹', payload.new)
     window.$nuxt.$store.commit('todos/updateTodoText', {
       idx,
       todo: payload.new.text,
