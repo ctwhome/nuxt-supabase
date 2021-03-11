@@ -23,10 +23,18 @@ supabase
   // [INSERT | UPDATE | DELETE | *]
   .on('*', (payload) => {
     // If the updated element is the same that the one existing in state, do not fetch again
-    const localIdx = todos.data.findIndex((i) => i.id === payload.new.id)
 
     if (payload.eventType !== 'DELETE') {
+      let localIdx = todos.data.findIndex((i) => i.id === payload.new.id)
+      localIdx = localIdx === -1 ? todos.data.length : localIdx
       set(todos.data, localIdx, payload.new)
+    } else {
+      // check if the payload.new is in the todos.list,
+      // if yes, delete it. Tha means that it comes from outside
+      const deletedIdx = todos.data.findIndex((i) => i.id === payload.old.id)
+      if (deletedIdx !== -1) {
+        todos.data.splice(deletedIdx, 1)
+      }
     }
   })
   .subscribe()
