@@ -4,7 +4,7 @@ export default {
   // Disable server-side rendering: https://go.nuxtjs.dev/ssr-mode
   ssr: false,
 
-  env: {
+  publicRuntimeConfig: {
     supabaseUrl: process.env.NUXT_ENV_SUPABASE_URL,
     supabaseKey: process.env.NUXT_ENV_SUPABASE_KEY,
   },
