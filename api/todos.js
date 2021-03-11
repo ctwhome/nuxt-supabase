@@ -3,7 +3,7 @@
  * https://github.com/vuejs/composition-api
  */
 import { supabase } from '~/plugins/supabase'
-import { reactive, set } from '@nuxtjs/composition-api'
+import { reactive, set, computed } from '@nuxtjs/composition-api'
 import { nanoid } from 'nanoid'
 
 // Reactive 'global' variable
@@ -12,7 +12,6 @@ const todos = reactive({
   error: null,
   fetching: false,
 })
-
 /**
  * == REALTIME ==
  * Listen for realtime changes
@@ -114,5 +113,19 @@ const removeTodo = async (todo, index) => {
     console.error(e)
   }
 }
+// Workaround for Vue2 to make this property readonly
+// It is important to compute the reactive variables to make
+// them readonly. In vue 3 this step is not necessary.
+const todosData = computed(() => todos.data)
+const todosFetching = computed(() => todos.fetching)
+const todosError = computed(() => todos.error)
 
-export { todos, fetchTodos, addTodo, doneTodo, removeTodo }
+export {
+  todosData,
+  todosError,
+  todosFetching,
+  fetchTodos,
+  addTodo,
+  doneTodo,
+  removeTodo,
+}

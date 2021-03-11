@@ -20,9 +20,9 @@
           <input v-model="newTodo" name="newTodo" autocomplete="off" />
           <button>Add ToDo</button>
         </form>
-        <h2>ToDo List {{ todos.count }}</h2>
+        <h2>ToDo List <span v-if="todosFetching">Loading...</span></h2>
         <ul>
-          <li v-for="(todo, index) in todos.data" :key="index">
+          <li v-for="(todo, index) in todosData" :key="index">
             <div
               @click="doneTodo(todo, index)"
               style="cursor: pointer; width: 100%"
@@ -37,7 +37,7 @@
             <button @click="removeTodo(todo, index)">Remove</button>
           </li>
         </ul>
-        <h4 v-if="todos.length === 0">Empty list.</h4>
+        <h4 v-if="todosData.length === 0">Empty list.</h4>
       </v-card-text>
     </v-card>
   </div>
@@ -45,7 +45,15 @@
 
 <script>
 import { ref } from '@nuxtjs/composition-api'
-import { todos, fetchTodos, addTodo, doneTodo, removeTodo } from '~/api/todos'
+import {
+  todosData,
+  todosFetching,
+  todosError,
+  fetchTodos,
+  addTodo,
+  doneTodo,
+  removeTodo,
+} from '~/api/todos'
 import { drawer } from '~/layouts/default'
 export default {
   setup() {
@@ -53,7 +61,9 @@ export default {
     const newTodo = ref('')
     // Return the properties that the rest of the vue component can access
     return {
-      todos,
+      todosData,
+      todosFetching,
+      todosError,
       addTodo,
       fetchTodos,
       doneTodo,
@@ -62,8 +72,9 @@ export default {
       drawer,
     }
   },
-  mounted() {
-    this.fetchTodos()
+  async mounted() {
+    await this.fetchTodos()
+    this.todosData = 1
   },
 }
 </script>
