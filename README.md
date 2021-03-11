@@ -1,7 +1,9 @@
-# nuxt-supabase
+# Nuxt Supabase Realtime CRUD template with optimistic UI
 [![Netlify Status](https://api.netlify.com/api/v1/badges/ac1c89ac-78b8-4695-ba49-c454b707c879/deploy-status)](https://app.netlify.com/sites/nuxt-supabase/deploys)
 
-Nuxt Supabase Realtime CRUD template with optimistic UI
+Check running example here: https://nuxt-supabase.netlify.app/
+
+
 ![image](https://user-images.githubusercontent.com/4195550/110701505-8564a880-81f1-11eb-8353-918207e4c29f.png)
 
 
