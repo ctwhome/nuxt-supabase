@@ -3,11 +3,11 @@
 </template>
 
 <script>
-import { todos } from '~/api/todos'
+import { todosData } from '~/api/todos'
 export default {
   name: 'Todos',
   setup() {
-    return { todos }
+    return { todosData }
   },
 }
 </script>

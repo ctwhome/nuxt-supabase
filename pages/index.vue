@@ -72,9 +72,8 @@ export default {
       drawer,
     }
   },
-  async mounted() {
-    await this.fetchTodos()
-    this.todosData = 1
+  mounted() {
+    this.fetchTodos()
   },
 }
 </script>

@@ -5,6 +5,7 @@
 import { supabase } from '~/plugins/supabase'
 import { reactive, set, computed } from '@nuxtjs/composition-api'
 import { nanoid } from 'nanoid'
+import isequal from 'lodash.isequal'
 
 // Reactive 'global' variable
 const todos = reactive({
@@ -21,20 +22,23 @@ supabase
   .from('*')
   // [INSERT | UPDATE | DELETE | *]
   .on('*', (payload) => {
-    // If the updated element is the same that the one existing in state, do not fetch again
-
-    if (payload.eventType !== 'DELETE') {
-      let localIdx = todos.data.findIndex((i) => i.id === payload.new.id)
-      localIdx = localIdx === -1 ? todos.data.length : localIdx
-      set(todos.data, localIdx, payload.new)
-    } else {
-      // check if the payload.new is in the todos.list,
-      // if yes, delete it. Tha means that it comes from outside
+    // Check if the payload.new is in the todos.list
+    // if yes, delete it. Tha means that it comes from outside
+    if (payload.eventType === 'DELETE') {
       const deletedIdx = todos.data.findIndex((i) => i.id === payload.old.id)
-      if (deletedIdx !== -1) {
-        todos.data.splice(deletedIdx, 1)
-      }
+      deletedIdx !== -1 && todos.data.splice(deletedIdx, 1)
+      return
     }
+
+    // If the updated element is the same that the one existing in state,
+    // do not update the local state
+    let localIdx = todos.data.findIndex((i) => i.id === payload.new.id)
+    const eq = isequal(todos.data[localIdx], payload.new)
+    if (eq) {
+      return
+    }
+    localIdx = localIdx === -1 ? todos.data.length : localIdx
+    set(todos.data, localIdx, payload.new)
   })
   .subscribe()
 
@@ -69,12 +73,12 @@ const addTodo = async (todoText) => {
     if (!todoText) {
       return
     }
-    // const now = new Date().toISOString().slice(0, -1)
+    const now = new Date().toISOString().slice(0, -1)
     const todo = {
       id: nanoid(), // custom ID
       text: todoText,
       done: false,
-      // created_at: now,
+      created_at: now,
     }
     // Update local state
     todos.data.push(todo)
@@ -113,7 +117,7 @@ const removeTodo = async (todo, index) => {
     console.error(e)
   }
 }
-// Workaround for Vue2 to make this property readonly
+// Workaround for Vue2 to make this property readonly with composition API
 // It is important to compute the reactive variables to make
 // them readonly. In vue 3 this step is not necessary.
 const todosData = computed(() => todos.data)

@@ -9,17 +9,14 @@
     "generate": "nuxt generate"
   },
   "dependencies": {
-    "@nuxtjs/axios": "^5.13.1",
-    "@nuxtjs/composition-api": "^0.22.0",
+    "@nuxtjs/composition-api": "^0.22.1",
     "@nuxtjs/pwa": "^3.3.5",
     "@supabase/supabase-js": "^1.4.2",
-    "@vue/composition-api": "^1.0.0-rc.3",
     "core-js": "^3.9.1",
     "lodash.isequal": "^4.5.0",
     "nanoid": "^3.1.20",
-    "nuxt": "^2.15.2",
-    "nuxt-supabase": "^1.0.2",
-    "nuxt-vite": "^0.0.28"
+    "nuxt": "^2.15.3",
+    "nuxt-vite": "^0.0.32"
   },
   "devDependencies": {
     "@nuxtjs/vuetify": "^1.11.3",

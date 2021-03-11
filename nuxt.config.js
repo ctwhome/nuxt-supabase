@@ -37,27 +37,18 @@ export default {
     // https://go.nuxtjs.dev/vuetify
     '@nuxtjs/vuetify',
     '@nuxtjs/composition-api',
-    // 'nuxt-vite'
+    // 'nuxt-vite',
   ],
-
+  vite: {
+    optimizeDeps: {
+      exclude: ['@supabase/supabase-js'],
+    },
+  },
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
-    // https://go.nuxtjs.dev/axios
-    // '@nuxtjs/axios',
     // https://go.nuxtjs.dev/pwa
     '@nuxtjs/pwa',
-    [
-      'nuxt-supabase',
-      {
-        supabaseUrl: 'https://mpdinkozdhzfxywnzhth.supabase.co',
-        supabaseKey:
-          'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYW5vbiIsImlhdCI6MTYxNDI0MDE4OCwiZXhwIjoxOTI5ODE2MTg4fQ.5yxWNa3G-Ee4G_vrdZe1372eVdD-pvNsdQ3NhWNR4Dw',
-      },
-    ],
   ],
-
-  // Axios module configuration: https://go.nuxtjs.dev/config-axios
-  // axios: {},
 
   // PWA module configuration: https://go.nuxtjs.dev/pwa
   pwa: {
