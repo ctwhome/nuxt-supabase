@@ -45,6 +45,7 @@
 
 <script>
 import { ref } from '@nuxtjs/composition-api'
+import { userSession } from '~/api/auth'
 import {
   todosData,
   todosFetching,
@@ -54,7 +55,9 @@ import {
   doneTodo,
   removeTodo,
 } from '~/api/todos'
+
 import { drawer } from '~/layouts/default'
+
 export default {
   setup() {
     // Reactive state newTodo with composition API. You can still use data(){return {newTodo:''}} from the options API
@@ -70,6 +73,7 @@ export default {
       removeTodo,
       newTodo,
       drawer,
+      userSession,
     }
   },
   mounted() {

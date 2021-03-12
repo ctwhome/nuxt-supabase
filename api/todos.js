@@ -2,6 +2,18 @@
  * Using Composition API  in Vue 2
  * https://github.com/vuejs/composition-api
  */
+
+/**
+ * Table creation SQL
+ *
+ CREATE TABLE todos (
+  id varchar primary key  NOT NULL,
+  text text,
+  done boolean,
+  created_at TIMESTAMP DEFAULT(now()) NOT NULL
+ )
+ */
+
 import { supabase } from '~/plugins/supabase'
 import { reactive, set, computed } from '@nuxtjs/composition-api'
 import { nanoid } from 'nanoid'
