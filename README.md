@@ -10,11 +10,11 @@ Tech Stack: Nuxt.js, Vuetify, Supabase (DB, Realtime, Auth), Postgres, Netlify H
 Features list: 
 - [x] Realtime CRUD example
 - [x] Auth
+- [x] Federated login with Google
 - [ ] Role definitions
-- [ ] Federated login with Google and Github
-- [ ] DB Init files (SQL)
+- [x] DB Init files (SQL)
 - [ ] DB migrations between environments 
-- [ ] Licensing Notes
+- [x] Licensing Notes
 
 
 ![image](https://user-images.githubusercontent.com/4195550/110701505-8564a880-81f1-11eb-8353-918207e4c29f.png)
