@@ -1,5 +1,6 @@
 # Nuxt Supabase Realtime CRUD template with optimistic UI
 [![Netlify Status](https://api.netlify.com/api/v1/badges/ac1c89ac-78b8-4695-ba49-c454b707c879/deploy-status)](https://app.netlify.com/sites/nuxt-supabase/deploys)
+![image](https://user-images.githubusercontent.com/4195550/110969526-12764180-8359-11eb-9a45-141b307fb319.png)
 
 Check running example here: https://nuxt-supabase.netlify.app/
 Project idea: [Full Stack Recipes](https://github.com/NLeSC/full-stack-recipes)
