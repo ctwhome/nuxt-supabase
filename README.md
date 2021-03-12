@@ -18,8 +18,21 @@ Features list:
 
 ![image](https://user-images.githubusercontent.com/4195550/110701505-8564a880-81f1-11eb-8353-918207e4c29f.png)
 
+## Prepare database and Auth
+1. Edit the local `.ENV' file to add the url and token from Supabase.
+2. create table todos with sql:
+```sql
+ CREATE TABLE todos (
+  id varchar primary key  NOT NULL,
+  text text,
+  done boolean,
+  created_at TIMESTAMP DEFAULT(now()) NOT NULL
+ )
+```
+3. Add Login with Google from the Auth settings in supabase. If want a guided tutorial, then folow this steps: https://www.youtube.com/watch?v=_XM9ziOzWk4
 
-## Build Setup
+
+## Development
 
 ```bash
 # install dependencies
