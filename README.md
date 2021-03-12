@@ -4,7 +4,7 @@
 Check running example here: https://nuxt-supabase.netlify.app/
 Project idea: [Full Stack Recipes](https://github.com/NLeSC/full-stack-recipes)
 
-Tech Stack: Nuxt.js, Vuetify, Supabase (DB, Realtime), Postgres, Netlify Hosting
+Tech Stack: Nuxt.js, Vuetify, Supabase (DB, Realtime, Auth), Postgres, Netlify Hosting
 
 Features list: 
 - [x] Realtime CRUD example
