@@ -1,12 +1,15 @@
 import colors from 'vuetify/es5/util/colors'
-
+const isDev = process.env.NODE_ENV === 'development'
 export default {
   // Disable server-side rendering: https://go.nuxtjs.dev/ssr-mode
   ssr: false,
-
   publicRuntimeConfig: {
-    supabaseUrl: process.env.NUXT_ENV_SUPABASE_URL,
-    supabaseKey: process.env.NUXT_ENV_SUPABASE_KEY,
+    supabaseUrl: isDev
+      ? 'http://localhost:8000'
+      : process.env.NUXT_ENV_SUPABASE_URL,
+    supabaseKey: isDev
+      ? 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJzdXBhYmFzZSIsImlhdCI6MTYwMzk2ODgzNCwiZXhwIjoyNTUwNjUzNjM0LCJhdWQiOiIiLCJzdWIiOiIiLCJSb2xlIjoicG9zdGdyZXMifQ.kdRWxJKxqgFOlx4BZQj-GIIOEeMILqUvdHMh8ebcn8M'
+      : process.env.NUXT_ENV_SUPABASE_KEY,
   },
 
   target: 'static',
