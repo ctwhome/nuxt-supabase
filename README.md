@@ -1,5 +1,6 @@
 # Nuxt Supabase Realtime CRUD template with optimistic UI
 [![Netlify Status](https://api.netlify.com/api/v1/badges/ac1c89ac-78b8-4695-ba49-c454b707c879/deploy-status)](https://app.netlify.com/sites/nuxt-supabase/deploys)
+![image](https://user-images.githubusercontent.com/4195550/110969526-12764180-8359-11eb-9a45-141b307fb319.png)
 
 Check running example here: https://nuxt-supabase.netlify.app/
 Project idea: [Full Stack Recipes](https://github.com/NLeSC/full-stack-recipes)
@@ -8,18 +9,31 @@ Tech Stack: Nuxt.js, Vuetify, Supabase (DB, Realtime, Auth), Postgres, Netlify H
 
 Features list: 
 - [x] Realtime CRUD example
-- [ ] Auth
+- [x] Auth
+- [x] Federated login with Google
 - [ ] Role definitions
-- [ ] Federated login with Google and Github
-- [ ] DB Init files (SQL)
+- [x] DB Init files (SQL)
 - [ ] DB migrations between environments 
-- [ ] Licensing Notes
+- [x] Licensing Notes
 
 
 ![image](https://user-images.githubusercontent.com/4195550/110701505-8564a880-81f1-11eb-8353-918207e4c29f.png)
 
+## Prepare database and Auth
+1. Edit the local `.ENV' file to add the url and token from Supabase.
+2. create table todos with sql:
+```sql
+ CREATE TABLE todos (
+  id varchar primary key  NOT NULL,
+  text text,
+  done boolean,
+  created_at TIMESTAMP DEFAULT(now()) NOT NULL
+ )
+```
+3. Add Login with Google from the Auth settings in supabase. If want a guided tutorial, then folow this steps: https://www.youtube.com/watch?v=_XM9ziOzWk4
 
-## Build Setup
+
+## Development
 
 ```bash
 # install dependencies
