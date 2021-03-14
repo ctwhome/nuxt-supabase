@@ -19,6 +19,20 @@ import { reactive, set, computed } from '@nuxtjs/composition-api'
 import { nanoid } from 'nanoid'
 import isequal from 'lodash.isequal'
 
+// async function cosa() {
+//   const response = await fetch(
+//     'http://localhost:8000/rest/v1/todos?select="*"',
+//     {
+//       headers: {
+//         apikey:
+//           'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJzdXBhYmFzZSIsImlhdCI6MTYwMzk2ODgzNCwiZXhwIjoyNTUwNjUzNjM0LCJhdWQiOiIiLCJzdWIiOiIiLCJSb2xlIjoicG9zdGdyZXMifQ.kdRWxJKxqgFOlx4BZQj-GIIOEeMILqUvdHMh8ebcn8M',
+//       },
+//     }
+//   ).then((response) => response.json())
+//   console.log('🎹', response)
+// }
+// cosa()
+
 // Reactive 'global' variable
 const todos = reactive({
   data: [],
