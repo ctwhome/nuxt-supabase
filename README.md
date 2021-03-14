@@ -14,6 +14,7 @@ Features list:
 - [ ] Role definitions
 - [x] DB Init files (SQL)
 - [ ] DB migrations between environments 
+- [x] Running locally with docker-compose
 - [x] Licensing Notes
 
 
@@ -39,8 +40,10 @@ Features list:
 # install dependencies
 $ yarn install
 
-# serve with hot reload at localhost:3000
+# serve with hot reload at localhost:8080
+$ cd docker && docker-compose up -d
 $ yarn dev
+
 
 # build for production and launch server
 $ yarn build
